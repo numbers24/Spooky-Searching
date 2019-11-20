@@ -30,18 +30,21 @@ void *searchThread (void* args){
 int search (int key, int max, int arr[]){
 	int threadnum = 0;
 	int i;
-	for (i = 0; i < 1000; i++){
+	for (i = 1; i < 1000; i++){
 		if ((max/i) <= 250){
 			threadnum = i;
 			break;
 		}
 	}
 	pthread_t thread[threadnum];
-	argarr *args = (argarr*)malloc(sizeof(argarr));
+	argarr *args = (argarr*)malloc(sizeof(argarr) + max*sizeof(int));
 	args->key = key;
 	args->max = max;
 	args->threadnum = threadnum;
-	args->arr = arr;
+	int l;
+	for (l = 0; l < max; l++){
+		args->arr[l] = arr[l];
+	}
 	int j;
 	for (j = 0; i < threadnum; i++){
 		args->curr = i;
