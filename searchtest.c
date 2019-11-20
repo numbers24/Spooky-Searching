@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "multitest.h"
-#define MAX 2501
+#define MAX 1001
 
 int testarr[MAX];
 
@@ -27,11 +27,7 @@ void workflow()
 	int i,j;
 	for(j=0;j<1000;j++)
 	{
-		for(i=1;i<MAX;i*=2)
-		test(i,MAX,testarr);
-		for(i=11;i<MAX;i+=11)
-		test(i,MAX,testarr);
-		for(i=1;i<MAX;i++)
+		for(i=1;i<1000;i++)
 		test(j%i,MAX,testarr);
 	}
 }
