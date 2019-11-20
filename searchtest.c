@@ -24,11 +24,10 @@ void initialize(){
 }
 void workflow()
 {
-	int i,j;
-	for(j=0;j<MAX;j++)
+	int i;
+	for(i=0;j<1000;j++)
 	{
-		for(i=1;i<MAX;i++)
-		test(j%i,MAX,testarr);
+		search(rand()%MAX,MAX,testarr);
 	}
 }
 int main(){
