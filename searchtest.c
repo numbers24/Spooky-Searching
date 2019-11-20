@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "multitest.h"
-#define MAX 11111
+#define MAX 2501
 
 int testarr[MAX];
 
