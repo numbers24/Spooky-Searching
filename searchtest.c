@@ -25,9 +25,9 @@ void initialize(){
 void workflow()
 {
 	int i,j;
-	for(j=0;j<1000;j++)
+	for(j=0;j<MAX;j++)
 	{
-		for(i=1;i<1000;i++)
+		for(i=1;i<MAX;i++)
 		test(j%i,MAX,testarr);
 	}
 }
