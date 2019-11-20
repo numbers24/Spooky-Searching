@@ -32,7 +32,7 @@ void workflow()
 		for(i=11;i<MAX;i+=11)
 		test(i,MAX,testarr);
 		for(i=1;i<MAX;i++)
-		test(MAX%i,MAX,testarr);
+		test(j%i,MAX,testarr);
 	}
 }
 int main(){
