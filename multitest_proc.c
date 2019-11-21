@@ -2,8 +2,9 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <sys/types.h>
+#include "multitest.h"
 
-int search(int key,int max,int arr[])
+int search(int key, int max)
 {	
 	int i,j,k,val,temp;
 	if(max%250)

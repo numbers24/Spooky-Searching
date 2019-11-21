@@ -1,15 +1,16 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <pthread.h>
+#include "multitest.h"
 
 int foundindex;
+
+int current = -1;
 
 typedef struct arguments{
 	int key;
 	int max;
 	int threadnum;
-	int curr;
-	int arr[];
 }argarr;
 
 void *searchThread (void* args){
@@ -17,8 +18,8 @@ void *searchThread (void* args){
 	int key = input->key;
 	int max = input->max;
 	int threadnum = input->threadnum;
-	int curr = input->curr;
-	int *arr = input->arr;
+	int curr = ++current;
+	//int *arr = input->arr;
 	int i;
 	for (i = (curr * (max/threadnum)); i < ((curr+1) * (max/threadnum)); i++){
 		if (key == arr[i]){
@@ -27,7 +28,7 @@ void *searchThread (void* args){
 	}
 }
 
-int search (int key, int max, int arr[]){
+int search (int key, int max){
 	int threadnum = 0;
 	int i;
 	for (i = 1; i < 1000; i++){
@@ -37,26 +38,23 @@ int search (int key, int max, int arr[]){
 		}
 	}
 	pthread_t thread[threadnum];
-	argarr *args = (argarr*)malloc(sizeof(argarr) + max*sizeof(int));
+	argarr *args = (argarr*)malloc(sizeof(argarr));
 	args->key = key;
 	args->max = max;
 	args->threadnum = threadnum;
-	int l;
+	printf("key: %d, max: %d, threadnum: %d\n", key, max, threadnum);
+	/*int l;
 	for (l = 0; l < max; l++){
 		args->arr[l] = arr[l];
-	}
+	}*/
 	int j;
-	for (j = 0; i < threadnum; i++){
-		args->curr = i;
-		pthread_create(&thread[i], NULL, searchThread, (void*)args);
+	for (j = 0; j < threadnum; j++){
+		pthread_create(&thread[j], NULL, searchThread, (void*)args);
 	}
 	int k;
-	for (k = 0; i < threadnum; i++){
-		pthread_join(thread[i], NULL);
+	for (k = 0; k < threadnum; k++){
+		pthread_join(thread[k], NULL);
 	}
+	printf("index: %d\n", foundindex);
 	return foundindex;
-}
-
-int main(){
-	return 0;
 }

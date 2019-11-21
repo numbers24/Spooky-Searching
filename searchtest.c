@@ -1,35 +1,49 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <time.h>
 #include "multitest.h"
-#define MAX 1001
-
-int testarr[MAX];
 
 void initialize(){
-	for (int i = 0; i < MAX; i++){
-		testarr[i] = i;
+	int i;
+	for (i = 0; i < MAX; i++){
+		arr[i] = i;
 	}
 	int pairs = (MAX * 0.75) + 1;
-	for (int i = 0; i < pairs; i++){
-		int index1 = rand() % MAX;
-		int index2 = rand() % MAX;
-		while (index2 == index1){
-			index2 = rand() % MAX;
-		}
-		int temp = testarr[index1];
-		testarr[index1] = testarr[index2];
-		testarr[index2] = temp;
+	int j;
+	int index1;
+	int index2;
+	int temp;
+	for (j = 0; j < pairs; j++){
+		index1 = rand() % MAX;
+		index2 = rand() % MAX;
+		temp = arr[index1];
+		arr[index1] = arr[index2];
+		arr[index2] = temp;
 	}
 	return;
 }
-void workflow()
-{
+
+void workload(){
+	int key = rand() % MAX;
 	int i;
-	for(i=0;j<1000;j++)
-	search(rand()%MAX,MAX,testarr);
+	int index1;
+	int index2;
+	int temp;
+	for (i = 0; i < 150; i++){
+		index1 = test(key, MAX);
+		index2 = rand() % MAX;
+		printf("index1: %d, index2: %d\n", index1, index2);
+		temp = arr[index1];
+		arr[index1] = arr[index2];
+		arr[index2] = temp;	
+		printf("val1: %d, val2: %d\n\n", arr[index1], arr[index2]);
+	}
+	return;
 }
+
 int main(){
+	srand(time(NULL));
 	initialize();
-	workflow();
+	workload();
 	return 0;
 }
