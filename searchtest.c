@@ -26,9 +26,7 @@ void workflow()
 {
 	int i;
 	for(i=0;j<1000;j++)
-	{
-		search(rand()%MAX,MAX,testarr);
-	}
+	search(rand()%MAX,MAX,testarr);
 }
 int main(){
 	initialize();
