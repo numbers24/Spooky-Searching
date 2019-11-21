@@ -21,7 +21,7 @@ int search(int key, int max)
 				if(arr[k]==key)
 				{
 					if(k%250==0)
-					exit(max);						
+					exit(251);						
 					exit(k%250);
 				}
 			}
@@ -32,7 +32,7 @@ int search(int key, int max)
 			wait(&val);
 			if(val)
 			{
-				if(val==max%256*256)
+				if(val==251*256)
 				val=i*250;
 				else
 				val=WEXITSTATUS(val)+(i*250);
