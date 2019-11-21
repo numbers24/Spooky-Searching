@@ -19,7 +19,7 @@ void *searchThread (void* args){
 	int max = input->max;
 	int threadnum = input->threadnum;
 	int curr = ++current;
-	//int *arr = input->arr;
+	//printf("curr = %d\n", curr);
 	int i;
 	for (i = (curr * (max/threadnum)); i < ((curr+1) * (max/threadnum)); i++){
 		if (key == arr[i]){
@@ -45,7 +45,7 @@ int search (int key, int max){
 	printf("key: %d, max: %d, threadnum: %d\n", key, max, threadnum);
 	/*int l;
 	for (l = 0; l < max; l++){
-		args->arr[l] = arr[l];
+		printf("%d\n", arr[l]);
 	}*/
 	int j;
 	for (j = 0; j < threadnum; j++){
@@ -55,6 +55,8 @@ int search (int key, int max){
 	for (k = 0; k < threadnum; k++){
 		pthread_join(thread[k], NULL);
 	}
+	free(args);
+	current = -1;
 	printf("index: %d\n", foundindex);
 	return foundindex;
 }
