@@ -25,18 +25,16 @@ void initialize(){
 
 void workload(){
 	int key = rand() % MAX;
-	int i;
-	int index1;
-	int index2;
-	int temp;
-	for (i = 0; i < 150; i++){
+	int i,index1,index2,temp;
+	for (i=0; i < 100; i++,index1=index2=temp=0)
+	{
 		index1 = test(key, MAX);
 		index2 = rand() % MAX;
 		printf("index1: %d, index2: %d\n", index1, index2);
+		printf("val1: %d, val2: %d\n\n", arr[index1], arr[index2]);
 		temp = arr[index1];
 		arr[index1] = arr[index2];
-		arr[index2] = temp;	
-		printf("val1: %d, val2: %d\n\n", arr[index1], arr[index2]);
+		arr[index2] = temp;
 	}
 	return;
 }
