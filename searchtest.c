@@ -32,7 +32,7 @@ void workload(){
 	for (i = 0; i < 150; i++){
 		index1 = test(key, MAX);
 		index2 = rand() % MAX;
-		printf("index1: %d, index2: %d\n", index1, index2);
+		//printf("index1: %d, index2: %d\n", index1, index2);
 		temp = arr[index1];
 		arr[index1] = arr[index2];
 		arr[index2] = temp;
