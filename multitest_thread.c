@@ -42,7 +42,7 @@ int search (int key, int max){
 	args->key = key;
 	args->max = max;
 	args->threadnum = threadnum;
-	printf("key: %d, max: %d, threadnum: %d\n", key, max, threadnum);
+	//printf("key: %d, max: %d, threadnum: %d\n", key, max, threadnum);
 	/*int l;
 	for (l = 0; l < max; l++){
 		printf("%d\n", arr[l]);
@@ -57,6 +57,10 @@ int search (int key, int max){
 	}
 	free(args);
 	current = -1;
-	printf("index: %d\n", foundindex);
+	//printf("index: %d\n", foundindex);
 	return foundindex;
+}
+
+int type(){
+	return 1;
 }

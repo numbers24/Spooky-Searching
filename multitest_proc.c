@@ -42,10 +42,14 @@ int search(int key, int max)
 				val=i*250;
 				else
 				val=WEXITSTATUS(val)+(i*250);
-				printf("Found key %d at index %d\n",arr[val],val);
+				//printf("Found key %d at index %d\n",arr[val],val);
 				temp=val;			
 			}	
 	}	
-	printf("\n");
+	//printf("\n");
 	return temp;
-}	
+}
+
+int type(){
+	return 0;
+}

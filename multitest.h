@@ -10,5 +10,6 @@
 int arr[MAX];
 
 int search (int key, int max);
+int type();
 
 #endif
