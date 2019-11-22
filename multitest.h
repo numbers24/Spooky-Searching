@@ -5,10 +5,11 @@
 
 #define test(x, y) search(x, y) //replace test call with proc or thread search (depends on make)
 
-#define MAX 1000
+#define MAX 1000 //define array size
 
-int arr[MAX];
+int arr[MAX]; //initialize array with MAX size
 
+//function prototypes
 int search (int key, int max);
 int type();
 

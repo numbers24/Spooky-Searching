@@ -5,13 +5,13 @@ proc: searchtest.c multitest_proc.o
 	gcc -o search searchtest.c multitest_proc.o -lm
 
 thread: searchtest.c multitest_thread.o
-	gcc -o search searchtest.c multitest_thread.o -pthread -lm
+	gcc -o search searchtest.c multitest_thread.o -lpthread -lm
 
 proclib: multitest_proc.c
 	gcc -c multitest_proc.c
 
 threadlib: multitest_thread.c
-	gcc -c multitest_thread.c -pthread
+	gcc -c multitest_thread.c -lpthread
 
 clean:
 	rm search
